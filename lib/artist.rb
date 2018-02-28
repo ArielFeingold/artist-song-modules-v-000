@@ -2,7 +2,7 @@ require 'pry'
 
 class Artist
   extend Memorable::ClassMethods
-  include Memorable::InstanceMethods
+  # include Memorable::InstanceMethods
   extend Findable::ClassMethods
   include Paramable::InstanceMethods
 
@@ -23,9 +23,9 @@ class Artist
     @@artists
   end
 
-  def add_song(song)
-    self.songs << song
-    song.artist = self
+  def initialize
+    @@artists << self
+    @songs = []
   end
 
   def add_songs(songs)
