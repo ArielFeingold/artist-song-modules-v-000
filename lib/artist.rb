@@ -2,6 +2,8 @@ require 'pry'
 
 class Artist
   extend Memorable::ClassMethods
+  extend Findable::ClassMethods
+
   # include Paramable::InstanceMethods
 
   attr_accessor :name
@@ -13,10 +15,8 @@ class Artist
   #   @@artists.detect{|a| a.name == name}
   # end
 
-  def self.find_by_name(name)
-    self.all.detect{|a| a.name == name}
-  end
-  
+
+
   def initialize
     @@artists << self
     @songs = []
